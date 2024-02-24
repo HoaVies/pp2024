@@ -1,3 +1,4 @@
+from datetime import datetime
 students = []
 courses = []
 marks = []
@@ -17,8 +18,24 @@ def input_students():
     for _ in range(num_students):
         student_id = input("Enter student ID: ")
         name = input("Enter student name: ")
-        dob = input("Enter student Date of Birth: ")
-        students.append({"id": student_id, "name": name, "dob": dob})
+        while True:
+            dob = input("Enter student Date of Birth(DD/MM/YYYY): ")
+            if check_dob_format(dob):
+                break
+            else:
+                print("Please enter the correct format")
+                
+        students.append({"id": student_id, "name": name, "dob(DD/MM/YYYY)": dob})
+        check_dob_format(dob)
+#Update to check if the user enter dob in correct format
+def check_dob_format(dob):
+    try: 
+        date_format = ['%d/%m/%Y']
+        for format in date_format:
+            datetime.strptime(dob, format)
+        return True
+    except ValueError:
+        print("Incorrect data format, should be DD/MM/YYYY")
 
 def input_courses():
     num_courses = int(input("Enter the number of courses: "))
