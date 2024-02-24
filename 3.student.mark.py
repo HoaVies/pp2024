@@ -1,5 +1,5 @@
 from math import floor
-#import numpy as np
+import numpy as np
 from datetime import datetime
 
 class Student:
@@ -9,9 +9,10 @@ class Student:
         self.dob = dob
 
 class Course:
-    def __init__(self, course_id, name):
+    def __init__(self, course_id, name, credits):
         self.course_id = course_id
         self.name = name
+        self.credits = credits
 
 class Mark:
     def __init__(self, student_id, course_id, marks):
@@ -65,7 +66,8 @@ class StudentManagementSystem:
         for _ in range(num_courses):
             course_id = input("Enter course ID: ")
             course_name = input("Enter course name: ")
-            course = Course(course_id, course_name)
+            course_credits = int(input("Enter course credits: "))
+            course = Course(course_id, course_name, course_credits)
             self.courses.append(course)
 
     def input_student_marks(self):
@@ -84,7 +86,7 @@ class StudentManagementSystem:
     def list_courses(self):
         print("List of Courses:")
         for course in self.courses:
-            print(f"ID: {course.course_id}, Name: {course.name}")
+            print(f"ID: {course.course_id}, Name: {course.name}, Credits: {course.credits}")
 
     def show_student_marks(self):
         student_id = input("Enter student ID to show marks: ")
