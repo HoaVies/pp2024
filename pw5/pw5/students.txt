@@ -1,0 +1,6 @@
+Student ID: 1, Name: Hoa, Date of Birth: 2/6/2004
+Student ID: 1, Name: 1, Date of Birth: 2/6/2004
+Student ID: 1, Name: 1, Date of Birth: 1/11/1111
+Student ID: 1, Name: 1, Date of Birth: 1/11/1111
+Student ID: 1, Name: 1, Date of Birth: 1/11/1111
+Student ID: 1, Name: 1, Date of Birth: 1/1/1111

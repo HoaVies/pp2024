@@ -25,6 +25,7 @@ class StudentManagementSystem:
         self.students = []
         self.courses = []
         self.marks = []
+        self.gpa = []
 
     def display_menu(self):
         print("\nMenu:")
@@ -34,6 +35,7 @@ class StudentManagementSystem:
         print("4. List Students")
         print("5. List Courses")
         print("6. Show Student Marks")
+        print("7. Calculate GPA")
         print("0. Exit")
 
     def input_students(self):
@@ -74,7 +76,7 @@ class StudentManagementSystem:
         student_id = input("Enter student ID: ")
         course_id = input("Enter course ID to input marks: ")
         #round up the mark
-        marks_value = floor(float(input(f"Enter marks for {course_id} for student {student_id}: ")))
+        marks_value = float(input(f"Enter marks for course id: {course_id} for student {student_id}: "))
         mark = Mark(student_id, course_id, marks_value)
         self.marks.append(mark)
 
@@ -95,10 +97,21 @@ class StudentManagementSystem:
         # Find the marks for the specified student and course
         for mark in self.marks:
             if mark.student_id == student_id and mark.course_id == course_id:
-                print(f"Marks for student {student_id} in course {course_id}: {mark.marks}")
+                print(f"Marks for student {student_id} in course {course_id}: {floor(mark.marks)}")
                 return
 
         print(f"No marks found for student {student_id} in course {course_id}.")
+
+    def cal_gpa(self):
+        for student in self.students:
+            marks = []
+            for mark in self.marks:
+                if mark.student_id == student.student_id:
+                    marks.append(mark.marks)
+            gpa = np.mean(marks)
+            self.gpa.append(gpa)
+            print("GPA of student " + student.student_id + " is: " + str(gpa))
+            return
 
 if __name__ == "__main__":
     system = StudentManagementSystem()
@@ -119,9 +132,10 @@ if __name__ == "__main__":
             system.list_courses()
         elif choice == "6":
             system.show_student_marks()
+        elif choice == "7":
+            system.cal_gpa()
         elif choice == "0":
             print("Exiting the program. Goodbye!")
             break
         else:
             print("Invalid choice. Please enter a number between 0 and 6.")
-
