@@ -4,5 +4,3 @@ Student ID: 1, Name: 1, Date of Birth: 1/11/1111
 Student ID: 1, Name: 1, Date of Birth: 1/11/1111
 Student ID: 1, Name: 1, Date of Birth: 1/11/1111
 Student ID: 1, Name: 1, Date of Birth: 1/1/1111
-Student ID: 2, Name: 2, Date of Birth: 22/2/2222
-Student ID: 2, Name: 12, Date of Birth: 2/2/2222
